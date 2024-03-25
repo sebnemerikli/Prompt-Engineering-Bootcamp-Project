@@ -1,0 +1,7 @@
+Created with designer.microsoft.com
+
+Fantasy book covers prompt -> "Create a fantasy book cover about a vampire and a werewolf fighting over a girl, make it dark and creepy"
+
+Distopia book covers prompt -> "Create a distopia book cover about choosen child"
+
+Romance book covers prompt -> "Create a image about a girl and boy in love but they can't be together"

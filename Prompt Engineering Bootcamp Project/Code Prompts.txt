@@ -1,0 +1,3378 @@
+Created with ChatGPT
+
+HTML tabanlı bir web sitesi oluşturulmak isteniliyor. Bu website kitap kapaklarını gösteren bir galeri işlevi görmektedir. Bu web sitesini oluştur.
+ChatGPT
+Tabii ki, işe HTML ile başlayalım. İlk olarak, HTML dosyasında gerekli yapıyı oluşturarak başlayalım:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        /* CSS still needs to be added for styling */
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="image">
+            <img src="kitap1.jpg" alt="Kitap 1">
+            <div class="caption">Kitap 1</div>
+        </div>
+        <div class="image">
+            <img src="kitap2.jpg" alt="Kitap 2">
+            <div class="caption">Kitap 2</div>
+        </div>
+        <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+    </div>
+</body>
+</html>
+Burada, bir HTML belgesi oluşturduk ve title etiketi ile sayfanın başlığını belirledik. Ardından, bir div etiketi içinde bir galeri oluşturduk. Her bir kitap kapağı için, bir div içinde bir img (resim) etiketi ve bir div içinde bir başlık (caption) ekledik.
+
+Şimdi stil vermek için CSS ekleyelim:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .image {
+            position: relative;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="image">
+            <img src="kitap1.jpg" alt="Kitap 1">
+            <div class="caption">Kitap 1</div>
+        </div>
+        <div class="image">
+            <img src="kitap2.jpg" alt="Kitap 2">
+            <div class="caption">Kitap 2</div>
+        </div>
+        <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+    </div>
+</body>
+</html>
+Bu CSS, galeriye güzel bir görünüm kazandırmak için temel stillemeyi sağlar. Artık her bir kitap kapağı için bir resim, başlık ve güzel bir arka plan olacak. İhtiyacınıza göre resim ve başlıkları ekleyebilir ve CSS'i daha da özelleştirebilirsiniz.
+
+User
+Oluşturulan bu web sitesinin HTML yapısında, semantik etiketlerin(header, main, nav, section, article, aside, footer) kullanılması beklenmektedir. Bu kapsamda web sitesinde en üstte ortalanmış bir şekilde "Kitap Kapakları Galerisi" yazan bir header isteniliyor.
+ChatGPT
+Tabii ki, semantik etiketlerle güncellenmiş bir HTML yapısı kullanarak header ekleyelim:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .image {
+            position: relative;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <section>
+            <div class="gallery">
+                <div class="image">
+                    <img src="kitap1.jpg" alt="Kitap 1">
+                    <div class="caption">Kitap 1</div>
+                </div>
+                <div class="image">
+                    <img src="kitap2.jpg" alt="Kitap 2">
+                    <div class="caption">Kitap 2</div>
+                </div>
+                <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu kodda, header etiketi kullanarak başlık bölümünü oluşturduk. Ayrıca main, section ve footer etiketlerini ekledik. Böylece sayfamız daha anlamlı hale geldi. Görsel galeri main içindeki bir section içinde yer alıyor. Umarım bu senin istediğin gibi!
+
+User
+"Kitap 1" ve "Kitap 2" bölümleri arasında boşluk olsun ve web sitesi içerisinde ortalanmış olsunlar 
+ChatGPT
+Tabii, "Kitap 1" ve "Kitap 2" bölümleri arasında boşluk oluşturmak için CSS kullanarak margin özelliğini kullanabiliriz ve bu bölümleri ortalamak için text-align: center; stilini kullanabiliriz. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+        }
+        main {
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .image {
+            position: relative;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .image:not(:first-child) {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <section>
+            <div class="gallery">
+                <div class="image">
+                    <img src="kitap1.jpg" alt="Kitap 1">
+                    <div class="caption">Kitap 1</div>
+                </div>
+                <div class="image">
+                    <img src="kitap2.jpg" alt="Kitap 2">
+                    <div class="caption">Kitap 2</div>
+                </div>
+                <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu güncellenmiş CSS, .image:not(:first-child) seçicisini kullanarak ilk resim dışındaki her resim için margin-top: 20px; stilini uygular. Böylece "Kitap 1" ve "Kitap 2" arasında boşluk oluşturur. main bölümü içinde text-align: center; stilini kullanarak resimlerin ve başlıkların ortalandığını sağlar.
+
+.jpg formatlı resimler farklı boyutlarda olsa da her kitap fotoğrafı web sitesinde aynı boyutta görüntülensin
+ChatGPT
+Anladım. Bu durumu sağlamak için CSS'de resimlerin maksimum genişliklerini ve yüksekliklerini belirleyebiliriz. Böylece, farklı boyutlardaki resimler bile aynı boyutta görüntülenecektir. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+        }
+        main {
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .image {
+            position: relative;
+            width: 100%;
+        }
+        .image img {
+            width: 100%;
+            height: auto;
+            max-width: 200px; /* Resimlerin en fazla 200px genişliğinde olmasını sağlar */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <section>
+            <div class="gallery">
+                <div class="image-container">
+                    <div class="image">
+                        <img src="kitap1.jpg" alt="Kitap 1">
+                        <div class="caption">Kitap 1</div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="image">
+                        <img src="kitap2.jpg" alt="Kitap 2">
+                        <div class="caption">Kitap 2</div>
+                    </div>
+                </div>
+                <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu güncellenmiş CSS'de, .image img için max-width: 200px; stilini kullandık, bu sayede resimler en fazla 200 piksel genişliğinde olacak ancak oranlarını koruyarak otomatik olarak boyutlandırılacak.
+
+User
+Bu kodda istenilen sağlanamadı, kitap fotoğrafları hangi boyutta olursa olsun div'lerin aynı boyutta ve "Kitap Kapakları Galerisi" title'nın altında ortalanmış olmasını istiyoruz.
+ChatGPT
+Anladım, bu durumu sağlamak için resimlerin boyutlarını otomatik olarak ayarlayacak bir yöntem kullanabiliriz. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+        }
+        main {
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .image {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <section>
+            <div class="gallery">
+                <div class="image-container">
+                    <div class="image">
+                        <img src="kitap1.jpg" alt="Kitap 1">
+                        <div class="caption">Kitap 1</div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="image">
+                        <img src="kitap2.jpg" alt="Kitap 2">
+                        <div class="caption">Kitap 2</div>
+                    </div>
+                </div>
+                <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu güncellenmiş kodda, .gallery sınıfına justify-content: center; stili ekledik, bu sayede galerinin içindeki tüm öğeleri yatay olarak ortalamış olduk. Ayrıca resimlerin boyutlarını otomatik olarak ayarlamak için .image img için max-width: 100%; stilini kullandık. Artık her kitap resmi, içerisinde bulunduğu divin boyutlarına göre otomatik olarak boyutlandırılacak ve "Kitap Kapakları Galerisi" başlığı altında ortalanacaktır.
+
+User
+Her 'div'in boyutu aynı olsun
+ChatGPT
+Anladım. Tüm div'lerin (resim ve başlık içeren) boyutunu aynı yapmak için CSS flexbox'ı kullanabiliriz. Ayrıca, "Kitap Kapakları Galerisi" başlığını ve galeriyi ortalamak için flexbox'u başlık ve galeri container'ına da uygulayabiliriz. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+        }
+        .image img {
+            width: 100%;
+            height: auto;
+            max-width: 100%; /* Resimlerin div'in genişliği kadar olmasını sağlar */
+        }
+        .caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu güncellenmiş CSS'de, .gallery için flex-wrap: wrap; stilini ve her .image için sabit bir genişlik belirledik. Bu sayede her bir kitap kapakları aynı boyutta olacak ve galeri responsive bir şekilde düzenlenecek. Ayrıca, başlık ve galeri container'ını sayfanın ortasına hizalamak için flexbox kullanıldı.
+
+User
+Bu kodda 'div'ler eşit olsa da resimler hala eşit değil, resmin boyutu ne olursa olsun web sitesinde her resim aynı boyutta gözükmeli. Resimler aynı boyutta gözükmediği için "Kitap 1" ve "Kitap 2" captionları aynı hizada görüntülenemiyor.
+ChatGPT
+Anladım, resimlerin boyutlarını zorlamak için CSS'de birkaç değişiklik yapmamız gerekecek. Resimlerin boyutlarını sabitleyerek ve kapladıkları alana sığacak şekilde yeniden boyutlandırarak bu sorunu çözebiliriz. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu kodda .image sınıfı için position: relative; ve .caption sınıfı için position: absolute; stilini ekledik. Ayrıca resimlere object-fit: cover; stilini uyguladık. Bu sayede resimler div'in tamamını kaplayacak ve eşit boyutlarda görüntüleneceklerdir.
+
+User
+Kitap 1 ve Kitap 2 divleri arasında boşluk olsun istiyorum, aynı zamanda "Kitap 1" ve "Kitap 2" captionları birbirine bağlı gözükmemeli
+ChatGPT
+Anladım, "Kitap 1" ve "Kitap 2" captionları arasındaki boşluğu sağlamak için CSS'de bazı ayarlamalar yapabiliriz. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image-container">
+                <div class="image">
+                    <img src="kitap1.jpg" alt="Kitap 1">
+                    <div class="caption">Kitap 1</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image">
+                    <img src="kitap2.jpg" alt="Kitap 2">
+                    <div class="caption">Kitap 2</div>
+                </div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu kodda, .caption sınıfına transform: translateY(100%); stilini ekledik. Bu, başlığın içeriğiyle aşağıya kaymasını sağlar ve resimlerle arasında bir boşluk oluşturur. Ayrıca .image-container sınıfına margin-bottom: 20px; stilini ekledik, bu da her resim seti arasında 20 piksellik bir boşluk bırakır.
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+
+
+Bu kod üzerinden işlemlere devam ediyoruz. Bir kitap kapağı resminin üzerine gelindiğinde kapağın dinamik animasyonla öne çıkmasını istiyoruz.
+ChatGPT
+Anladım, bir kitap kapağı resminin üzerine gelindiğinde dinamik bir animasyonla öne çıkmasını sağlamak için CSS hover efektlerini kullanabiliriz. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Resimlerin caption'ı içinde taşmasını önlemek için */
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+            transition: transform 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+        }
+        .image:hover img {
+            transform: scale(1.1); /* Resim üzerine gelindiğinde büyüme animasyonu */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: opacity 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+            opacity: 0; /* Başlangıçta caption'ı gizle */
+        }
+        .image:hover .caption {
+            opacity: 1; /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+</body>
+</html>
+Bu kodda, .image img için transition özelliği ile transform animasyonunu belirttik. .image:hover img ile resmin üzerine gelindiğinde büyüme efekti uygulandı. Ayrıca, .caption için de opacity geçişi tanımlayarak resmin üzerine gelindiğinde başlık daha yavaş bir şekilde görünür hale geldi.
+
+User
+Süpersin, şimdi kitap kapağı resmine tıklandığında web sitesinin ortasında bir box açarak kitap kapağının gösterilmesini sağla
+ChatGPT
+Elbette, bir lightbox görüntüleme efekti ekleyebiliriz. Bu, resme tıklandığında tam ekran boyutunda bir modal veya overlay penceresinin açılmasını ve kitap kapağının büyük boyutta görüntülenmesini sağlar. İşte güncellenmiş HTML ve CSS:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer; /* Resme tıklanabilir olduğunu belirtmek için */
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+            transition: transform 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+        }
+        .image:hover img {
+            transform: scale(1.1); /* Resim üzerine gelindiğinde büyüme animasyonu */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: opacity 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+            opacity: 0; /* Başlangıçta caption'ı gizle */
+        }
+        .image:hover .caption {
+            opacity: 1; /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1" onclick="openLightbox('kitap1.jpg', 'Kitap 1')">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2" onclick="openLightbox('kitap2.jpg', 'Kitap 2')">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span
+User
+Devam et
+ChatGPT
+php
+Copy code
+        <img src="" alt="" id="lightbox-image">
+    </div>
+
+    <script>
+        function openLightbox(imageSrc, captionText) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = captionText;
+
+            lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none'; // Lightbox'u gizle
+        }
+    </script>
+</body>
+</html>
+Bu kodda, .image div'lerine onclick olayı ekleyerek bir JavaScript fonksiyonunu çağırıyoruz. Bu fonksiyon, tıklanan resmin büyük boyutta gösterilmesi için lightbox'u açar. Ayrıca, lightbox'un kapatılması için bir fonksiyon ekledik. Bu sayede, kullanıcılar resimlere tıkladığında büyük boyutta görüntüleyebilir ve lightbox'u kapatmak için bir kapatma düğmesi kullanabilirler.
+Resim tıklanıldıktan sonra bir sonraki ya da bir önceki resimlerin de aynı lightbox içerisinde gösterilmesini sağlayacak butonları ekle
+
+ChatGPT
+Tabii, resimler arasında geçiş yapabilmek için bir sonraki ve bir önceki butonları ekleyebiliriz. Bu butonlar, lightbox içinde bulunacak ve tıklandığında gösterilen resmi değiştirecek. İşte güncellenmiş HTML ve JavaScript kodu:
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer; /* Resme tıklanabilir olduğunu belirtmek için */
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+            transition: transform 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+        }
+        .image:hover img {
+            transform: scale(1.1); /* Resim üzerine gelindiğinde büyüme animasyonu */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: opacity 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+            opacity: 0; /* Başlangıçta caption'ı gizle */
+        }
+        .image:hover .caption {
+            opacity: 1; /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1" onclick="openLightbox('kitap1.jpg', 'Kitap 1')">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2" onclick="openLightbox('kitap2.jpg', 'Kitap 2')">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+    </div>
+
+    <script>
+        var images = ["kitap1.jpg", "kitap2.jpg"]; // Gösterilecek resimlerin listesi
+        var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+
+        function openLightbox(imageSrc, captionText) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = captionText;
+
+            lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none'; // Lightbox'u gizle
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            var lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = images[currentImageIndex];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            var lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = images[currentImageIndex];
+        }
+    </script>
+</body>
+</html
+User
+Süpersin, lightbox'da bir de seçilen kitap kapağı resminin adının görünmesini istiyorum, bunu düzenle
+ChatGPT
+Tabii, kitap kapağı resminin altında adının görünmesini sağlayabiliriz. İşte güncellenmiş HTML ve JavaScript kodu:
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer; /* Resme tıklanabilir olduğunu belirtmek için */
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+            transition: transform 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+        }
+        .image:hover img {
+            transform: scale(1.1); /* Resim üzerine gelindiğinde büyüme animasyonu */
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: opacity 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+            opacity: 0; /* Başlangıçta caption'ı gizle */
+        }
+        .image:hover .caption {
+            opacity: 1; /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1" onclick="openLightbox('kitap1.jpg', 'Kitap 1')">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2" onclick="openLightbox('kitap2.jpg', 'Kitap 2')">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox
+User
+Devam et
+ChatGPT
+html
+Copy code
+">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img src="" alt="" id="lightbox-image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="prev" onclick="prevImage()">&#10094;</button>
+        <button class="next" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <script>
+        var images = [];
+        var captions = [];
+        var currentIndex = 0;
+
+        function openLightbox(imageSrc, captionText) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = captionText;
+            lightboxCaption.textContent = captionText;
+
+            currentIndex = images.indexOf(imageSrc);
+
+            lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none'; // Lightbox'u gizle
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImage.src = images[currentIndex];
+            lightboxImage.alt = captions[currentIndex];
+            lightboxCaption.textContent = captions[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImage.src = images[currentIndex];
+            lightboxImage.alt = captions[currentIndex];
+            lightboxCaption.textContent = captions[currentIndex];
+        }
+    </script>
+</body>
+</html>
+Bu kod, kitap kapaklarını bir galeri şeklinde görüntülemenizi sağlar. Her bir kitap kapak resmine tıkladığınızda, resmin daha büyük bir versiyonu ve başlığı lightbox içinde görüntülenir. Lightbox içinde, önceki ve sonraki butonlar aracılığıyla diğer resimlere geçiş yapabilirsiniz.
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9; /* Arka plan rengi */
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+        .image {
+            width: 200px; /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer; /* Resme tıklanabilir olduğunu belirtmek için */
+            border-radius: 8px; /* Köşeleri yuvarlat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif bir gölgelendirme efekti */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasyon efektleri için geçiş tanımlandı */
+        }
+        .image:hover {
+            transform: scale(1.05); /* Resim üzerine gelindiğinde büyüme animasyonu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Gölgelendirme efektini güçlendir */
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+        .caption {
+            position: absolute;
+            bottom: -50px; /* Başlangıçta görünmesini engellemek için dışarıda */
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: bottom 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+        }
+        .image:hover .caption {
+            bottom: 0; /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 50%; /* Daire şeklinde düğmeler */
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+        /* Lightbox için caption stilini güncellendi */
+        .lightbox .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="kitap1.jpg" alt="Kitap 1" onclick="openLightbox('kitap1.jpg', 'Kitap 1')">
+                <div class="caption">Kitap 1</div>
+            </div>
+            <div class="image">
+                <img src="kitap2.jpg" alt="Kitap 2" onclick="openLightbox('kitap2.jpg', 'Kitap 2')">
+                <div class="caption">Kitap 2</div>
+            </div>
+            <!-- Diğer kitap kapaklarını da ekleyebilirsiniz -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+
+        <script>
+            var images = ["kitap1.jpg", "kitap2.jpg"]; // Gösterilecek resimlerin listesi
+            var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+    
+            function openLightbox(imageSrc, captionText) {
+                var lightbox = document.getElementById('lightbox');
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption'); // Yeni eklenen caption div'i
+    
+                lightboxImage.src = imageSrc;
+                lightboxImage.alt = captionText;
+                lightboxCaption.textContent = captionText; // Caption'ı güncelle
+    
+                lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+            }
+    
+            function closeLightbox() {
+                var lightbox = document.getElementById('lightbox');
+                lightbox.style.display = 'none'; // Lightbox'u gizle
+            }
+    
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+    
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+    
+            // İlgili resmin başlığını döndüren fonksiyon
+            function getImageCaption(imageSrc) {
+                // Örnek bir metin döndürülebilir, ancak bu örnekte resmin adını kullanacağım.
+                // Gerçek bir uygulamada, resimlere ilişkin başlık verilerini bir veritabanından veya başka bir kaynaktan alabilirsiniz.
+                // Bu örnekte, resim adından başlığı elde etmek için bir örnek fonksiyon yazdım.
+                var imageName = imageSrc.split('/').pop(); // Dosya adını al
+                return imageName.substring(0, imageName.lastIndexOf('.')); // Dosya adının uzantısını kaldır
+            }
+        </script>
+    </body>
+    </html>
+
+
+
+Bu web sitesinin arka planını ilgi çekici hale getir?
+ChatGPT
+Arka planı ilgi çekici hale getirmek için çeşitli yollar var. İşte birkaç öneri:
+
+Gradient Arka Plan: Arka plana bir gradient ekleyerek modern ve şık bir görünüm elde edebilirsiniz. Örneğin, mavi tonlarıyla bir gradient kullanabilirsiniz.
+
+css
+Copy code
+body {
+    background: linear-gradient(135deg, #2980b9, #6dd5fa);
+    /* Diğer stillendirme kodları */
+}
+Desenli Arka Plan: Arka plana desen eklemek, sitenize dinamizm katacaktır. Örneğin, yıldızlar, üçgenler veya geometrik desenler gibi bir desen kullanabilirsiniz.
+
+css
+Copy code
+body {
+    background-image: url('desen.png');
+    /* Diğer stillendirme kodları */
+}
+Görsel Arka Plan: İlgilendiğiniz bir konuya uygun bir görsel eklemek de arka planı daha ilgi çekici hale getirebilir. Örneğin, kitap kütüphanesi, doğa manzarası veya soyut bir sanat eseri gibi.
+
+css
+Copy code
+body {
+    background-image: url('arka_plan_resmi.jpg');
+    background-size: cover;
+    /* Diğer stillendirme kodları */
+}
+Bu örneklerden birini seçip CSS kodunuzdaki body kısmına uygulayarak arka planı ilgi çekici hale getirebilirsiniz.
+
+
+1 / 2
+
+User
+Gradient Arka Plan seçeneğini gerçekleştirelim, açık pembe tonları kullanalım
+ChatGPT
+Tabii, işte bir gradient arka plan kullanarak açık pembe tonlarına sahip bir örnek:
+
+css
+Copy code
+body {
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+    /* Diğer stillendirme kodları */
+}
+Bu CSS kodu, arka plana pembe tonları içeren bir gradient uygular. İlk renk #fad0c4, ikinci renk ise #ff9a9e olarak belirlenmiştir. Bu renkler, açık pembe tonlarını içerir. Açık pembe gradient arka plan, sitenize yumuşak ve hoş bir görünüm kazandırabilir. Kodu mevcut CSS dosyanıza ekleyerek hemen kullanmaya başlayabilirsiniz.
+
+User
+Bu özelliği koduma ekler misin?
+ChatGPT
+Tabii, mevcut CSS kodunuza gradient arka plan özelliğini ekleyeyim:
+
+css
+Copy code
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e); /* Gradient arka plan */
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px; /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+}
+
+.image {
+    width: 200px; /* Sabit bir genişlik belirlendi */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Resimlerin caption'ı içinde taşmasını önlemek için */
+    cursor: pointer; /* Resme tıklanabilir olduğunu belirtmek için */
+    border-radius: 8px; /* Köşeleri yuvarlat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif bir gölgelendirme efekti */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasyon efektleri için geçiş tanımlandı */
+}
+
+.image:hover {
+    transform: scale(1.05); /* Resim üzerine gelindiğinde büyüme animasyonu */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Gölgelendirme efektini güçlendir */
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmin div'in tamamını kaplamasını sağlar */
+}
+
+.caption {
+    position: absolute;
+    bottom: -50px; /* Başlangıçta görünmesini engellemek için dışarıda */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transition: bottom 0.3s ease; /* Animasyon efekti için geçiş tanımlandı */
+}
+
+.image:hover .caption {
+    bottom: 0; /* Resim üzerine gelindiğinde caption'ı görünür yap */
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Arkaplan rengi ve opaklığı */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+    border-radius: 50%; /* Daire şeklinde düğmeler */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Lightbox için caption stilini güncellendi */
+.lightbox .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+Bu kod, body kısmına gradient arka planı ekler ve diğer stillendirmeleri korur. Artık sayfanızın arka planı pembe tonlarında bir gradient olacak.
+
+User
+Bu gradient arka planı animasyonlu hale getirebilir miyiz? 
+ChatGPT
+Evet, arka planı animasyonlu hale getirebiliriz. Örneğin, gradientin yavaşça değişmesini sağlayabiliriz. Aşağıdaki kod, arka plan gradientinin sürekli olarak değiştiği bir animasyon ekler:
+
+css
+Copy code
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e); /* Gradient arka plan */
+    animation: changeBackground 10s ease infinite alternate; /* Arka plan animasyonu */
+}
+
+@keyframes changeBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+Bu CSS kodu, body elementine bir animasyon ekler. changeBackground adında bir animasyon tanımlanır ve bu animasyon, arka plan gradientinin background-position özelliğini yavaşça değiştirerek gerçekleşir. 10s sürede tamamlanacak ve ease eğrisi kullanılacak şekilde tanımlanır. infinite değeri animasyonun sürekli olarak tekrarlanacağını belirtirken, alternate değeri animasyonun ters yönde de tekrarlanacağını belirtir.
+
+Bu şekilde, sayfanızın arka planı yumuşak bir geçişle sürekli olarak değişecektir.
+
+User
+Header kısmını etkileyici hale getir, animasyon ekle
+ChatGPT
+Header'ı etkileyici hale getirmek için animasyonlarla birlikte belirgin bir görünüm oluşturabiliriz. Örneğin, hover efektleri ekleyerek ve metni yavaşça büyüterek veya renk değişimleriyle dikkat çekebiliriz. İşte bir örnek:
+
+css
+Copy code
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    transition: background-color 0.3s ease; /* Arka plan rengi için geçiş efekti */
+}
+
+header:hover {
+    background-color: #555; /* Header arka plan rengini değiştir */
+}
+
+header h1 {
+    font-size: 32px;
+    transition: font-size 0.3s ease; /* Başlık büyüklüğü için geçiş efekti */
+}
+
+header:hover h1 {
+    font-size: 36px; /* Başlık büyüklüğünü büyüt */
+}
+Bu CSS kodu, header'ın hover durumunda arka plan rengini değiştiren ve başlığı büyüten bir animasyon ekler. Header'a imleç getirildiğinde arka plan rengi geçiş efektiyle değişir ve başlık büyüklüğü artar. Bu animasyonlar, kullanıcı etkileşimini artırarak header'ı daha etkileyici hale getirir. İlgili animasyonları kendi CSS dosyanıza ekleyebilirsiniz.
+
+User
+"Kitap Kapakları Galerisi" yazısını canlandır
+ChatGPT
+"Kitap Kapakları Galerisi" yazısını canlandırmak için ona bir hover efekti ve animasyon ekleyebiliriz. Örneğin, yazının rengini değiştirerek veya hafif bir gölge ekleyerek dikkat çekebiliriz. İşte bir örnek:
+
+css
+Copy code
+header h1 {
+    font-size: 32px;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Renk ve gölge için geçiş efekti */
+}
+
+header h1:hover {
+    color: #ff7b54; /* Yazı rengini değiştir */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Hafif bir gölge efekti ekle */
+}
+Bu CSS kodu, "Kitap Kapakları Galerisi" başlığının üzerine gelindiğinde yazı rengini değiştirir ve hafif bir gölge efekti ekler. Bu sayede başlık, kullanıcı etkileşimine daha dikkat çekici hale gelir. İlgili animasyonları kendi CSS dosyanıza ekleyebilirsiniz.
+
+
+Gösterilecek kitap kapağı fotoğrafları şu şekilde isimlendirilmiştir: fantasy1, fantasy2, fantasy3, choosenchild1, choosenchild2, romance1, romance2, romance3 
+Tüm bu fotoğrafların aynı hizada gösterilmesi isteniliyor
+ChatGPT
+Eğer tüm bu fotoğrafları aynı hizada göstermek istiyorsanız, HTML kodunda galeri bölümüne ilgili fotoğrafları eklemeniz gerekir. Ayrıca, JavaScript kısmında da images dizisine tüm fotoğraf dosyalarının isimlerini eklemelisiniz. İşte HTML kodunuzun güncellenmiş hali:
+
+html
+Copy code
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                <div class="caption">Fantasy 1</div>
+            </div>
+            <div class="image">
+                <img src="fantasy2.jpg" alt="Fantasy 2" onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                <div class="caption">Fantasy 2</div>
+            </div>
+            <div class="image">
+                <img src="fantasy3.jpg" alt="Fantasy 3" onclick="openLightbox('fantasy3.jpg', 'Fantasy 3')">
+                <div class="caption">Fantasy 3</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild1.jpg" alt="Choosen Child 1" onclick="openLightbox('choosenchild1.jpg', 'Choosen Child 1')">
+                <div class="caption">Choosen Child 1</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild2.jpg" alt="Choosen Child 2" onclick="openLightbox('choosenchild2.jpg', 'Choosen Child 2')">
+                <div class="caption">Choosen Child 2</div>
+            </div>
+            <div class="image">
+                <img src="romance1.jpg" alt="Romance 1" onclick="openLightbox('romance1.jpg', 'Romance 1')">
+                <div class="caption">Romance 1</div>
+            </div>
+            <div class="image">
+                <img src="romance2.jpg" alt="Romance 2" onclick="openLightbox('romance2.jpg', 'Romance 2')">
+                <div class="caption">Romance 2</div>
+            </div>
+            <div class="image">
+                <img src="romance3.jpg" alt="Romance 3" onclick="openLightbox('romance3.jpg', 'Romance 3')">
+                <div class="caption">Romance 3</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+    </div>
+
+    <script>
+        var images = ["fantasy1.jpg", "fantasy2.jpg", "fantasy3.jpg", "choosenchild1.jpg", "choosenchild2.jpg", "romance1.jpg", "romance2.jpg", "romance3.jpg"]; // Gösterilecek resimlerin listesi
+        var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+        // diğer fonksiyonlar burada
+    </script>
+</body>
+Bu kod, galeriye tüm fotoğrafları ekler ve JavaScript kısmında images dizisine tüm fotoğraf dosyalarının isimlerini ekler. Bu şekilde, tüm fotoğraflar aynı hizada gösterilecektir.
+
+User
+Tüm bu "div"lerin aynı hizada ve sayfanın ortasında olmasını istiyorum, kapak fotoğrafları animasyon olarak soldan sağa aksın 
+ChatGPT
+Anladım, o zaman CSS'de bazı düzenlemeler yapmamız gerekecek. İlgili gallery ve image sınıflarına flex özellikleri ekleyerek fotoğrafların aynı hizada olmasını sağlayabiliriz. Ayrıca, fotoğrafların animasyon ile soldan sağa hareket etmesi için bir geçiş efekti ekleyebiliriz. İşte güncellenmiş CSS kodunuz:
+
+css
+Copy code
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto; /* Sayfanın ortasına almak için */
+}
+
+.image {
+    width: 200px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, margin-left 0.5s ease; /* Animasyon efektleri için geçiş tanımlandı */
+    margin-left: -200px; /* Başlangıçta fotoğrafları gizle */
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image:hover {
+    margin-left: 0; /* Fotoğrafları göstermek için sola kaydır */
+}
+Bu değişikliklerle fotoğraflarınız galeri içinde aynı hizada olacak ve sayfanın ortasında görünecek. Ayrıca, fare ile üzerlerine geldiğinizde ve galeri yüklendiğinde fotoğrafların sola doğru animasyon ile kaydığını göreceksiniz.
+
+User
+Böyle istemiyorum, her div yan yana ve boşluklu olsun (eski koddaki gibi) ve ok ile kapakların sırası değiştirebilsin
+ChatGPT
+Anladım, o zaman galerideki her bir kitap kapağı için bir "div" olacak ve bu "div"ler yan yana yerleştirilecek. Ayrıca, okları kullanarak kitap kapakları arasında geçiş yapılabilmesini sağlayacağım. İşte güncellenmiş HTML ve JavaScript kodu:
+
+html
+Copy code
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                <div class="caption">Fantasy 1</div>
+            </div>
+            <div class="image">
+                <img src="fantasy2.jpg" alt="Fantasy 2" onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                <div class="caption">Fantasy 2</div>
+            </div>
+            <div class="image">
+                <img src="fantasy3.jpg" alt="Fantasy 3" onclick="openLightbox('fantasy3.jpg', 'Fantasy 3')">
+                <div class="caption">Fantasy 3</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild1.jpg" alt="Choosen Child 1" onclick="openLightbox('choosenchild1.jpg', 'Choosen Child 1')">
+                <div class="caption">Choosen Child 1</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild2.jpg" alt="Choosen Child 2" onclick="openLightbox('choosenchild2.jpg', 'Choosen Child 2')">
+                <div class="caption">Choosen Child 2</div>
+            </div>
+            <div class="image">
+                <img src="romance1.jpg" alt="Romance 1" onclick="openLightbox('romance1.jpg', 'Romance 1')">
+                <div class="caption">Romance 1</div>
+            </div>
+            <div class="image">
+                <img src="romance2.jpg" alt="Romance 2" onclick="openLightbox('romance2.jpg', 'Romance 2')">
+                <div class="caption">Romance 2</div>
+            </div>
+            <div class="image">
+                <img src="romance3.jpg" alt="Romance 3" onclick="openLightbox('romance3.jpg', 'Romance 3')">
+                <div class="caption">Romance 3</div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+    </div>
+
+    <script>
+        var images = ["fantasy1.jpg", "fantasy2.jpg", "fantasy3.jpg", "choosenchild1.jpg", "choosenchild2.jpg", "romance1.jpg", "romance2.jpg", "romance3.jpg"]; // Gösterilecek resimlerin listesi
+        var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+        // diğer fonksiyonlar burada
+    </script>
+</body>
+Bu kod, galerideki her bir kitap kapağı için bir "div" oluşturur ve bunları yan yana yerleştirir. Ardından, bir kontrol bölümü ekler ve bu kontrol bölümünde önceki ve sonraki resimlere geçiş için ok düğmeleri bulunur. Bu düğmeleri kullanarak kitap kapakları arasında geçiş yapabilirsiniz.
+
+User
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #fad0c460, #c48587);
+            /* Gradient arka plan */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #685959;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            /* Arka plan rengi için geçiş efekti */
+        }
+
+        header:hover {
+            background-color: #eecaca;
+            /* Header arka plan rengini değiştir */
+        }
+
+        header h1 {
+            font-size: 32px;
+            transition: font-size 0.3s ease;
+            /* Başlık büyüklüğü için geçiş efekti */
+        }
+
+        header:hover h1 {
+            font-size: 36px;
+            /* Başlık büyüklüğünü büyüt */
+        }
+
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+        }
+
+        .image {
+            width: 200px;
+            /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer;
+            /* Resme tıklanabilir olduğunu belirtmek için */
+            border-radius: 8px;
+            /* Köşeleri yuvarlat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Hafif bir gölgelendirme efekti */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Animasyon efektleri için geçiş tanımlandı */
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+            /* Resim üzerine gelindiğinde büyüme animasyonu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Gölgelendirme efektini güçlendir */
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: -50px;
+            /* Başlangıçta görünmesini engellemek için dışarıda */
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: bottom 0.3s ease;
+            /* Animasyon efekti için geçiş tanımlandı */
+        }
+
+        .image:hover .caption {
+            bottom: 0;
+            /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+            /* Daire şeklinde düğmeler */
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Lightbox için caption stilini güncellendi */
+        .lightbox .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                <div class="caption">Fantasy 1</div>
+            </div>
+            <div class="image">
+                <img src="fantasy2.jpg" alt="Fantasy 2" onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                <div class="caption">Fantasy 2</div>
+            </div>
+            <div class="image">
+                <img src="fantasy3.jpg" alt="Fantasy 3" onclick="openLightbox('fantasy3.jpg', 'Fantasy 3')">
+                <div class="caption">Fantasy 3</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild1.jpg" alt="Choosen Child 1" onclick="openLightbox('choosenchild1.jpg', 'Choosen Child 1')">
+                <div class="caption">Choosen Child 1</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild2.jpg" alt="Choosen Child 2" onclick="openLightbox('choosenchild2.jpg', 'Choosen Child 2')">
+                <div class="caption">Choosen Child 2</div>
+            </div>
+            <div class="image">
+                <img src="romance1.jpg" alt="Romance 1" onclick="openLightbox('romance1.jpg', 'Romance 1')">
+                <div class="caption">Romance 1</div>
+            </div>
+            <div class="image">
+                <img src="romance2.jpg" alt="Romance 2" onclick="openLightbox('romance2.jpg', 'Romance 2')">
+                <div class="caption">Romance 2</div>
+            </div>
+            <div class="image">
+                <img src="romance3.jpg" alt="Romance 3" onclick="openLightbox('romance3.jpg', 'Romance 3')">
+                <div class="caption">Romance 3</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+        
+        <script>
+            var images = ["fantasy1.jpg", "fantasy2.jpg", "fantasy3.jpg", "choosenchild1.jpg", "choosenchild2.jpg", "romance1.jpg", "romance2.jpg", "romance3.jpg"]; // Gösterilecek resimlerin listesi
+            var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+
+            function openLightbox(imageSrc, captionText) {
+                var lightbox = document.getElementById('lightbox');
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption'); // Yeni eklenen caption div'i
+
+                lightboxImage.src = imageSrc;
+                lightboxImage.alt = captionText;
+                lightboxCaption.textContent = captionText; // Caption'ı güncelle
+
+                lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+            }
+
+            function closeLightbox() {
+                var lightbox = document.getElementById('lightbox');
+                lightbox.style.display = 'none'; // Lightbox'u gizle
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            // İlgili resmin başlığını döndüren fonksiyon
+            function getImageCaption(imageSrc) {
+                // Örnek bir metin döndürülebilir, ancak bu örnekte resmin adını kullanacağım.
+                // Gerçek bir uygulamada, resimlere ilişkin başlık verilerini bir veritabanından veya başka bir kaynaktan alabilirsiniz.
+                // Bu örnekte, resim adından başlığı elde etmek için bir örnek fonksiyon yazdım.
+                var imageName = imageSrc.split('/').pop(); // Dosya adını al
+                return imageName.substring(0, imageName.lastIndexOf('.')); // Dosya adının uzantısını kaldır
+            }
+        </script>
+</body>
+
+</html>
+
+
+Bu kodda resimlerin gösterildiği "div"ler alta kayıyor, tüm "div"lerin aynı hizada olmasını ve soldan sağa animasyonla kapak fotoğraflarının sayfada gösterilmesini istiyorum
+ChatGPT
+Anladım, galerideki her bir kitap kapağı "div"inin alt alta değil, yan yana sıralanmasını ve soldan sağa animasyonla görüntülenmesini sağlayabiliriz. Aşağıda HTML ve CSS kodlarını güncelleyerek istediğiniz düzenlemeleri gerçekleştirdim:
+
+html
+Copy code
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                <div class="caption">Fantasy 1</div>
+            </div>
+            <div class="image">
+                <img src="fantasy2.jpg" alt="Fantasy 2" onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                <div class="caption">Fantasy 2</div>
+            </div>
+            <!-- Diğer kitap kapakları buraya eklenecek -->
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+    </div>
+
+    <script>
+        var images = ["fantasy1.jpg", "fantasy2.jpg"]; // Gösterilecek resimlerin listesi
+        var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+
+        function openLightbox(imageSrc, captionText) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = captionText;
+            lightboxCaption.textContent = captionText;
+
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImage.src = images[currentImageIndex];
+            lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImage.src = images[currentImageIndex];
+            lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+        }
+
+        function getImageCaption(imageSrc) {
+            var imageName = imageSrc.split('/').pop();
+            return imageName.substring(0, imageName.lastIndexOf('.'));
+        }
+    </script>
+</body>
+CSS kodunu da şu şekilde güncelledim:
+
+css
+Copy code
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.image {
+    width: 200px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transition: bottom 0.3s ease;
+}
+
+.image:hover .caption {
+    bottom: -50px;
+}
+Bu değişikliklerle, galerideki kitap kapakları yan yana, boşluklu ve her biri aynı hizada olacak şekilde görüntülenirken, hover efektleri de eklenmiş oldu. Arzu ettiğiniz sonucu almanızı umarım!
+
+User
+Tüm kodu yazar mısın?
+ChatGPT
+Tabii, işte tam HTML, CSS ve JavaScript kodları:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #fad0c460, #c48587);
+            /* Gradient arka plan */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #685959;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            /* Arka plan rengi için geçiş efekti */
+        }
+
+        header:hover {
+            background-color: #eecaca;
+            /* Header arka plan rengini değiştir */
+        }
+
+        header h1 {
+            font-size: 32px;
+            transition: font-size 0.3s ease;
+            /* Başlık büyüklüğü için geçiş efekti */
+        }
+
+        header:hover h1 {
+            font-size: 36px;
+            /* Başlık büyüklüğünü büyüt */
+        }
+
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            /* İsteğe bağlı olarak maksimum genişlik belirlenebilir */
+            margin-top: 20px;
+        }
+
+        .image {
+            width: 200px;
+            /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer;
+            /* Resme tıklanabilir olduğunu belirtmek için */
+            border-radius: 8px;
+            /* Köşeleri yuvarlat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Hafif bir gölgelendirme efekti */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Animasyon efektleri için geçiş tanımlandı */
+        }
+
+        .image:hover {
+            transform: translateY(-5px);
+            /* Resim üzerine gelindiğinde yukarı doğru kayma animasyonu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Gölgelendirme efektini güçlendir */
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: bottom 0.3s ease;
+            /* Animasyon efekti için geçiş tanımlandı */
+        }
+
+        .image:hover .caption {
+            bottom: -50px;
+            /* Resim üzerine gelindiğinde caption'ı yukarı doğru kaydır */
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px
+User
+devam et
+ChatGPT
+Sure, işte devam eden CSS kodu:
+
+css
+Copy code
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+            /* Daire şeklinde düğmeler */
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Lightbox için caption stilini güncellendi */
+        .lightbox .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                <div class="caption">Fantasy 1</div>
+            </div>
+            <div class="image">
+                <img src="fantasy2.jpg" alt="Fantasy 2" onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                <div class="caption">Fantasy 2</div>
+            </div>
+            <div class="image">
+                <img src="fantasy3.jpg" alt="Fantasy 3" onclick="openLightbox('fantasy3.jpg', 'Fantasy 3')">
+                <div class="caption">Fantasy 3</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild1.jpg" alt="Choosen Child 1" onclick="openLightbox('choosenchild1.jpg', 'Choosen Child 1')">
+                <div class="caption">Choosen Child 1</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild2.jpg" alt="Choosen Child 2" onclick="openLightbox('choosenchild2.jpg', 'Choosen Child 2')">
+                <div class="caption">Choosen Child 2</div>
+            </div>
+            <div class="image">
+                <img src="romance1.jpg" alt="Romance 1" onclick="openLightbox('romance1.jpg', 'Romance 1')">
+                <div class="caption">Romance 1</div>
+            </div>
+            <div class="image">
+                <img src="romance2.jpg" alt="Romance 2" onclick="openLightbox('romance2.jpg', 'Romance 2')">
+                <div class="caption">Romance 2</div>
+            </div>
+            <div class="image">
+                <img src="romance3.jpg" alt="Romance 3" onclick="openLightbox('romance3.jpg', 'Romance 3')">
+                <div class="caption">Romance 3</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+        
+        <script>
+            var images = ["fantasy1.jpg", "fantasy2.jpg", "fantasy3.jpg", "choosenchild1.jpg", "choosenchild2.jpg", "romance1.jpg", "romance2.jpg", "romance3.jpg"]; // Gösterilecek resimlerin listesi
+            var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+
+            function openLightbox(imageSrc, captionText) {
+                var lightbox = document.getElementById('lightbox');
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption'); // Yeni eklenen caption div'i
+
+                lightboxImage.src = imageSrc;
+                lightboxImage.alt = captionText;
+                lightboxCaption.textContent = captionText; // Caption'ı güncelle
+
+                lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+            }
+
+            function closeLightbox() {
+                var lightbox = document.getElementById('lightbox');
+                lightbox.style.display = 'none'; // Lightbox'u gizle
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            // İlgili resmin başlığını döndüren fonksiyon
+            function getImageCaption(imageSrc) {
+                // Örnek bir metin döndürülebilir, ancak bu örnekte resmin adını kullanacağım.
+                // Gerçek bir uygulamada, resimlere ilişkin başlık verilerini bir veritabanından veya başka bir kaynaktan alabilirsiniz.
+                // Bu örnekte, resim adından başlığı elde etmek için bir örnek fonksiyon yazdım.
+                var imageName = imageSrc.split('/').pop(); // Dosya adını al
+                return imageName.substring(0, imageName.lastIndexOf('.')); // Dosya adının uzantısını kaldır
+            }
+        </script>
+</body>
+
+</html>
+Bu kod, resimlerin galeri olarak alt alta sıralanmasını ve sol üst köşeden sağ alt köşeye animasyonlu bir geçişle gösterilmesini sağlar.
+
+User
+Alt alta sıralanmasını istemiyorum, hepsi yan yana sıralansın ve soldan sağa kayarak animasyonlu geçişle gösterilsin
+ChatGPT
+Anladım, galerideki resimlerin yan yana sıralanması ve soldan sağa animasyonlu bir şekilde geçiş yapması için CSS ve HTML kodunu güncelleyelim:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #fad0c460, #c48587);
+            /* Gradient arka plan */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #685959;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            /* Arka plan rengi için geçiş efekti */
+        }
+
+        header:hover {
+            background-color: #eecaca;
+            /* Header arka plan rengini değiştir */
+        }
+
+        header h1 {
+            font-size: 32px;
+            transition: font-size 0.3s ease;
+            /* Başlık büyüklüğü için geçiş efekti */
+        }
+
+        header:hover h1 {
+            font-size: 36px;
+            /* Başlık büyüklüğünü büyüt */
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: auto;
+            /* Yatay taşmayı görüntüle */
+            scrollbar-width: none;
+            /* Firefox için görünmez kaydırma çubuğu */
+            -ms-overflow-style: none;
+            /* Internet Explorer için görünmez kaydırma çubuğu */
+        }
+
+        main::-webkit-scrollbar {
+            display: none;
+            /* WebKit tarayıcıları için görünmez kaydırma çubuğu */
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            /* Resimler arasındaki boşluk */
+            overflow: hidden;
+            /* Taşma durumunda resimleri gizle */
+        }
+
+        .image {
+            width: 200px;
+            /* Sabit bir genişlik belirlendi */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            /* Resimlerin caption'ı içinde taşmasını önlemek için */
+            cursor: pointer;
+            /* Resme tıklanabilir olduğunu belirtmek için */
+            border-radius: 8px;
+            /* Köşeleri yuvarlat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Hafif bir gölgelendirme efekti */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Animasyon efektleri için geçiş tanımlandı */
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+            /* Resim üzerine gelindiğinde büyüme animasyonu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Gölgelendirme efektini güçlendir */
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: -50px;
+            /* Başlangıçta görünmesini engellemek için dışarıda */
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: bottom 0.3s ease;
+            /* Animasyon efekti için geçiş tanımlandı */
+        }
+
+        .image:hover .caption {
+            bottom: 0;
+            /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+            /* Daire şeklinde düğmeler */
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Lightbox için caption stilini güncellendi */
+        .lightbox .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <div class="image">
+                <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                <div class="caption">Fantasy 1</div>
+            </div>
+            <div class="image">
+                <img src="fantasy2.jpg" alt="
+User
+devam et
+ChatGPT
+Tabii, işte devamı:
+
+html
+Copy code
+            Fantasy 2" onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                <div class="caption">Fantasy 2</div>
+            </div>
+            <div class="image">
+                <img src="fantasy3.jpg" alt="Fantasy 3" onclick="openLightbox('fantasy3.jpg', 'Fantasy 3')">
+                <div class="caption">Fantasy 3</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild1.jpg" alt="Choosen Child 1" onclick="openLightbox('choosenchild1.jpg', 'Choosen Child 1')">
+                <div class="caption">Choosen Child 1</div>
+            </div>
+            <div class="image">
+                <img src="choosenchild2.jpg" alt="Choosen Child 2" onclick="openLightbox('choosenchild2.jpg', 'Choosen Child 2')">
+                <div class="caption">Choosen Child 2</div>
+            </div>
+            <div class="image">
+                <img src="romance1.jpg" alt="Romance 1" onclick="openLightbox('romance1.jpg', 'Romance 1')">
+                <div class="caption">Romance 1</div>
+            </div>
+            <div class="image">
+                <img src="romance2.jpg" alt="Romance 2" onclick="openLightbox('romance2.jpg', 'Romance 2')">
+                <div class="caption">Romance 2</div>
+            </div>
+            <div class="image">
+                <img src="romance3.jpg" alt="Romance 3" onclick="openLightbox('romance3.jpg', 'Romance 3')">
+                <div class="caption">Romance 3</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+        
+        <script>
+            var images = ["fantasy1.jpg", "fantasy2.jpg", "fantasy3.jpg", "choosenchild1.jpg", "choosenchild2.jpg", "romance1.jpg", "romance2.jpg", "romance3.jpg"]; // Gösterilecek resimlerin listesi
+            var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+
+            function openLightbox(imageSrc, captionText) {
+                var lightbox = document.getElementById('lightbox');
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption'); // Yeni eklenen caption div'i
+
+                lightboxImage.src = imageSrc;
+                lightboxImage.alt = captionText;
+                lightboxCaption.textContent = captionText; // Caption'ı güncelle
+
+                lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+            }
+
+            function closeLightbox() {
+                var lightbox = document.getElementById('lightbox');
+                lightbox.style.display = 'none'; // Lightbox'u gizle
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            // İlgili resmin başlığını döndüren fonksiyon
+            function getImageCaption(imageSrc) {
+                // Örnek bir metin döndürülebilir, ancak bu örnekte resmin adını kullanacağım.
+                // Gerçek bir uygulamada, resimlere ilişkin başlık verilerini bir veritabanından veya başka bir kaynaktan alabilirsiniz.
+                // Bu örnekte, resim adından başlığı elde etmek için bir örnek fonksiyon yazdım.
+                var imageName = imageSrc.split('/').pop(); // Dosya adını al
+                return imageName.substring(0, imageName.lastIndexOf('.')); // Dosya adının uzantısını kaldır
+            }
+        </script>
+</body>
+
+</html>
+Bu kod, resimlerin yan yana sıralanmasını ve yatay taşmaları durumunda kaydırma çubuğu kullanılmasını sağlar. Ayrıca, resimler arasındaki boşluklar ve animasyonlar korunur.
+
+User
+Kitap kapağı fotoğraflarını soldan sağa yavaşça kayacak şekilde hareketlendirebilir miyiz?
+ChatGPT
+Evet, tabii ki! CSS'de animasyonlar kullanarak kitap kapağı fotoğraflarını soldan sağa yavaşça kaydırabiliriz. İşte bu amaca yönelik bir örnek:
+
+css
+Copy code
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.image {
+    animation: slideRight 0.5s ease;
+}
+Bu CSS kodu, slideRight adında bir animasyon tanımlar. Bu animasyon, transform özelliğini kullanarak bir elementi soldan sağa doğru kaydırır. Sonrasında .image sınıfına bu animasyonu uygularız. Bu şekilde, her bir kitap kapağı fotoğrafı sayfaya yavaşça kayacak şekilde görünecektir.
+
+Bu CSS kodunu var olan stil bölümünün sonuna ekleyebilirsiniz.
+
+User
+Sadece bir kere değil web sitesi açık oldukça akmaya devam etsin,
+ChatGPT
+Anladım. Sürekli bir kaydırma hareketi sağlamak için CSS animasyonlarının yanı sıra JavaScript kullanarak bir döngü oluşturabiliriz. Her bir kitap kapağı fotoğrafı için aynı animasyonu devamlı olarak uygulamak için JavaScript'te bir döngü oluşturabiliriz. İşte bu amaca yönelik bir örnek:
+
+javascript
+Copy code
+// Sayfa yüklendiğinde çalışacak kod
+window.onload = function() {
+    var images = document.querySelectorAll('.image');
+
+    images.forEach(function(image) {
+        animate(image);
+    });
+};
+
+// Animasyon fonksiyonu
+function animate(element) {
+    element.style.animation = 'slideRight 10s linear infinite';
+}
+Bu JavaScript kodu, sayfa yüklendiğinde tüm .image sınıfına sahip elementleri seçer ve her birine animate fonksiyonunu uygular. animate fonksiyonu, her bir elemente "slideRight" adında bir animasyon ekler. Bu animasyon, elementin yavaşça sağa kaymasını sağlar. 10s süresi ile animasyonun 10 saniye sürdüğünü belirtiyoruz ve infinite değeriyle animasyonun sürekli olarak tekrarlanacağını belirtiyoruz.
+
+Bu JavaScript kodunu HTML dosyasının içine <script> etiketleri arasında ekleyebilirsiniz. Bu sayede sayfa yüklendiğinde kitap kapakları sürekli olarak sağa doğru kayacak şekilde hareket edecektir.
+
+User
+Tam olarak nereye eklemeliyim?
+ChatGPT
+JavaScript kodunu HTML dosyanızın içindeki <script> etiketleri arasına eklemelisiniz. HTML dosyanızın en altına gidin ve <script> etiketleri arasına JavaScript kodunu ekleyin. İşte örnek bir yerleşim:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Head kısmı -->
+</head>
+
+<body>
+    <!-- Body kısmı -->
+    
+    <!-- Sayfa içeriği -->
+    
+    <script>
+        // JavaScript kodu buraya eklenecek
+        window.onload = function() {
+            var images = document.querySelectorAll('.image');
+
+            images.forEach(function(image) {
+                animate(image);
+            });
+        };
+
+        function animate(element) {
+            element.style.animation = 'slideRight 10s linear infinite';
+        }
+    </script>
+</body>
+
+</html>
+Bu şekilde JavaScript kodu, sayfa içeriğini oluşturan HTML etiketlerinden sonra ve </body> etiketinden önce yer alır. Bu, sayfanın içeriği tamamen yüklendikten sonra JavaScript'ın çalışmasını sağlar. Bu, JavaScript'ın sayfanın işleyişini engellemeden animasyonları başlatmasına olanak tanır.
+
+User
+Soldan sağa bir akma istiyorum, aynı zamanda son fotoğraftan sonra boşluk gözükmesin, ilk fotoğraf devamında gözüksün
+ChatGPT
+Anladım, o zaman JavaScript kodunu biraz değiştirmemiz gerekecek. İlk fotoğrafın animasyonu bitip bitmediğini kontrol ederek, animasyonun bitişini algıladığımızda ilk fotoğrafı animasyonun sonuna yerleştireceğiz. İşte bu amaca yönelik bir örnek:
+
+javascript
+Copy code
+// Sayfa yüklendiğinde çalışacak kod
+window.onload = function() {
+    var images = document.querySelectorAll('.image');
+
+    images.forEach(function(image, index) {
+        // Son fotoğraftan sonra ilk fotoğrafı tekrar eklemek için son fotoğrafın animasyonunu dinle
+        if (index === images.length - 1) {
+            image.addEventListener('animationend', function() {
+                animate(images[0]);
+            });
+        }
+        animate(image);
+    });
+};
+
+// Animasyon fonksiyonu
+function animate(element) {
+    element.style.animation = 'slideRight 10s linear infinite';
+}
+Bu JavaScript kodu, sayfa yüklendiğinde tüm .image sınıfına sahip elementleri seçer ve her birine animate fonksiyonunu uygular. Ancak son fotoğrafın animasyonunu dinleyerek, animasyonun bitişini algıladığında ilk fotoğrafı tekrar animasyona dahil eder. Bu şekilde, animasyonun süresi boyunca herhangi bir boşluk olmadan sürekli bir kayma efekti elde edersiniz.
+
+User
+Soldan sağa akma olsun
+ChatGPT
+Tamam, JavaScript kodunu güncelleyerek animasyonun soldan sağa doğru hareket etmesini sağlayabiliriz. İşte bu amaca yönelik bir örnek:
+
+javascript
+Copy code
+// Sayfa yüklendiğinde çalışacak kod
+window.onload = function() {
+    var images = document.querySelectorAll('.image');
+
+    images.forEach(function(image, index) {
+        // Son fotoğraftan sonra ilk fotoğrafı tekrar eklemek için son fotoğrafın animasyonunu dinle
+        if (index === images.length - 1) {
+            image.addEventListener('animationiteration', function() {
+                animate(images[0]);
+            });
+        }
+        animate(image);
+    });
+};
+
+// Animasyon fonksiyonu
+function animate(element) {
+    element.style.animation = 'slideRight 10s linear infinite';
+}
+Bu JavaScript kodu, her fotoğraf için aynı animasyonu başlatır, ancak son fotoğrafın animasyonunun bitişini dinleyerek ilk fotoğrafı tekrar başlatır. Bu, her fotoğrafın kaydırma animasyonunu başlatırken, son fotoğrafın animasyonu tekrar başa döndüğünde ilk fotoğrafın da animasyonun başında olmasını sağlar. Bu şekilde, sürekli bir kaydırma hareketi olur ve boşluk olmaz.
+
+
+
+
+
+resimler web sitesinin tam ortasında olsun istiyorum
+ChatGPT
+Anladım, resimleri web sitesinin tam ortasına yerleştirmek için main etiketini sarmalayan bir div ekleyebiliriz ve bu dive display: flex; justify-content: center; align-items: center; stilini uygulayabiliriz. Böylece, main içindeki tüm içerik, sayfanın ortasına hizalanır. İşte değiştirilmiş HTML kodu:
+
+html
+Copy code
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+    </header>
+    <div class="centered-content">
+        <main>
+            <div class="gallery">
+                <!-- Resimler burada yer alacak -->
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <!-- Diğer içerikler burada yer alacak -->
+    </div>
+</body>
+Ve CSS'e şu kodu ekleyelim:
+
+css
+Copy code
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Sayfa yüksekliğini en az %100 olarak ayarla */
+}
+
+main {
+    /* İçeriğin genişliğini sınırlamak için kullanılabilir */
+}
+Bu değişikliklerle, resim galerisi web sitesinin tam ortasında görünecektir.
+
+User
+"div"lerin boyutlarını büyült (gösterilen fotoğraflar daha büyük boyutlarda gösterilsin)
+ChatGPT
+Resimlerin boyutlarını büyütmek için CSS'de .image sınıfına uygun genişlik ve yükseklik değerleri ekleyebiliriz. Bu, her resmin daha büyük boyutta görüntülenmesini sağlayacaktır. İşte değiştirilmiş CSS kodu:
+
+css
+Copy code
+.image {
+    width: 300px; /* Genişlik değerini artırabilirsiniz */
+    height: 400px; /* Yükseklik değerini artırabilirsiniz */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideRight 0.5s ease;
+}
+Burada width ve height değerlerini istediğiniz boyutlara göre ayarlayabilirsiniz. Bu değişikliklerle, resimler daha büyük boyutta görüntülenecektir.
+
+User
+Fotoğraflar soldan sağa aksın
+ChatGPT
+Resimlerin soldan sağa doğru akmasını sağlamak için, .gallery sınıfına flex-direction: row; özelliğini ekleyebiliriz. Bu, resimlerin yatay olarak sıralanmasını sağlayacaktır. İşte CSS kodunda yapılması gereken değişiklik:
+
+css
+Copy code
+.gallery {
+    display: flex;
+    flex-direction: row; /* Resimlerin yatay olarak sıralanmasını sağla */
+    gap: 20px;
+    overflow: hidden;
+    justify-content: center; /* Resimleri yatay olarak ortala */
+    flex-wrap: nowrap; /* Resimlerin satırda sığmasını sağla */
+    margin: auto; /* Resim galerisini dikey olarak ortala */
+    max-width: 90%; /* Galeri genişliğini sınırla */
+}
+Bu değişikliklerle, resimler soldan sağa doğru akacak ve fotoğraf galerisi sayfanın ortasında görünecektir.
+User
+"Kitap Kapakları Galerisi" headerının altına "Bu web sitesi, kitabınıza uygun bir kitap kapağı bulmak adına oluşturulmuş." yazısını ekle
+ChatGPT
+İstenilen metni eklemek için HTML koduna şu satırı ekleyebiliriz:
+
+html
+Copy code
+<p class="site-description">Bu web sitesi, kitabınıza uygun bir kitap kapağı bulmak adına oluşturulmuş.</p>
+Ayrıca, bu metni stillemek için CSS'e de uygun bir sınıf ekleyebiliriz. İşte HTML ve CSS'de yapılması gereken değişiklikler:
+
+HTML:
+
+html
+Copy code
+<header>
+    <h1>Kitap Kapakları Galerisi</h1>
+    <p class="site-description">Bu web sitesi, kitabınıza uygun bir kitap kapağı bulmak adına oluşturulmuş.</p>
+</header>
+CSS:
+
+css
+Copy code
+.site-description {
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 20px; /* Metin ile galeri arasındaki boşluğu artırır */
+}
+Bu değişikliklerle, "Kitap Kapakları Galerisi" başlığının altında belirtilen açıklama metni görünecektir.
+
+
+
+
+

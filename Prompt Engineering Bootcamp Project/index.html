@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Kapakları Galerisi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #fad0c460, #c48587);
+            /* Gradient arka plan */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #685959;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            /* Arka plan rengi için geçiş efekti */
+        }
+
+        header:hover {
+            background-color: #eecaca;
+            /* Header arka plan rengini değiştir */
+        }
+
+        header h1 {
+            font-size: 32px;
+            transition: font-size 0.3s ease;
+            /* Başlık büyüklüğü için geçiş efekti */
+        }
+
+        header:hover h1 {
+            font-size: 36px;
+            /* Başlık büyüklüğünü büyüt */
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: auto;
+            /* Yatay taşmayı görüntüle */
+            scrollbar-width: none;
+            /* Firefox için görünmez kaydırma çubuğu */
+            -ms-overflow-style: none;
+            /* Internet Explorer için görünmez kaydırma çubuğu */
+        }
+
+        main::-webkit-scrollbar {
+            display: none;
+            /* WebKit tarayıcıları için görünmez kaydırma çubuğu */
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            /* Resimler arasındaki boşluk */
+            overflow: hidden;
+            /* Taşma durumunda resimleri gizle */
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .image {
+            width: 300px;
+            /* Genişlik değerini artırabilirsiniz */
+            height: 400px;
+            /* Yükseklik değerini artırabilirsiniz */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideRight 0.5s ease;
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+            /* Resim üzerine gelindiğinde büyüme animasyonu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Gölgelendirme efektini güçlendir */
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Resmin div'in tamamını kaplamasını sağlar */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: -50px;
+            /* Başlangıçta görünmesini engellemek için dışarıda */
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transition: bottom 0.3s ease;
+            /* Animasyon efekti için geçiş tanımlandı */
+        }
+
+        .image:hover .caption {
+            bottom: 0;
+            /* Resim üzerine gelindiğinde caption'ı görünür yap */
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Arkaplan rengi ve opaklığı */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            /* Modal'ın diğer içeriklerin üstünde olmasını sağlar */
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+            /* Daire şeklinde düğmeler */
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Lightbox için caption stilini güncellendi */
+        .lightbox .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .centered-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Sayfa yüksekliğini en az %100 olarak ayarla */
+        }
+
+        .site-description {
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 20px; /* Metin ile galeri arasındaki boşluğu artırır */
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Kitap Kapakları Galerisi</h1>
+        <p class="site-description">Bu web sitesi, kitabınıza uygun bir kitap kapağı bulmak adına oluşturulmuştur.</p>
+    </header>
+    <div class="centered-content">
+        <main>
+            <div class="gallery">
+                <div class="image">
+                    <img src="fantasy1.jpg" alt="Fantasy 1" onclick="openLightbox('fantasy1.jpg', 'Fantasy 1')">
+                    <div class="caption">Fantasy 1</div>
+                </div>
+                <div class="image">
+                    <img src="fantasy2.jpg" alt="            Fantasy 2"
+                        onclick="openLightbox('fantasy2.jpg', 'Fantasy 2')">
+                    <div class="caption">Fantasy 2</div>
+                </div>
+                <div class="image">
+                    <img src="fantasy3.jpg" alt="Fantasy 3" onclick="openLightbox('fantasy3.jpg', 'Fantasy 3')">
+                    <div class="caption">Fantasy 3</div>
+                </div>
+                <div class="image">
+                    <img src="choosenchild1.jpg" alt="Choosen Child 1"
+                        onclick="openLightbox('choosenchild1.jpg', 'Choosen Child 1')">
+                    <div class="caption">Choosen Child 1</div>
+                </div>
+                <div class="image">
+                    <img src="choosenchild2.jpg" alt="Choosen Child 2"
+                        onclick="openLightbox('choosenchild2.jpg', 'Choosen Child 2')">
+                    <div class="caption">Choosen Child 2</div>
+                </div>
+                <div class="image">
+                    <img src="romance1.jpg" alt="Romance 1" onclick="openLightbox('romance1.jpg', 'Romance 1')">
+                    <div class="caption">Romance 1</div>
+                </div>
+                <div class="image">
+                    <img src="romance2.jpg" alt="Romance 2" onclick="openLightbox('romance2.jpg', 'Romance 2')">
+                    <div class="caption">Romance 2</div>
+                </div>
+                <div class="image">
+                    <img src="romance3.jpg" alt="Romance 3" onclick="openLightbox('romance3.jpg', 'Romance 3')">
+                    <div class="caption">Romance 3</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>Telif Hakkı © 2024 - Kitap Kapakları Galerisi</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img src="" alt="" id="lightbox-image">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+        <div class="caption" id="lightbox-caption"> </div>
+
+        <script>
+            window.onload = function () {
+                var images = document.querySelectorAll('.image');
+
+                images.forEach(function (image) {
+                    animate(image);
+                });
+            };
+
+            function animate(element) {
+                element.style.animation = 'slideRight 10s linear infinite';
+            }
+
+            var images = ["fantasy1.jpg", "fantasy2.jpg", "fantasy3.jpg", "choosenchild1.jpg", "choosenchild2.jpg", "romance1.jpg", "romance2.jpg", "romance3.jpg"]; // Gösterilecek resimlerin listesi
+            var currentImageIndex = 0; // Başlangıçta ilk resmi göster
+
+            function openLightbox(imageSrc, captionText) {
+                var lightbox = document.getElementById('lightbox');
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption'); // Yeni eklenen caption div'i
+
+                lightboxImage.src = imageSrc;
+                lightboxImage.alt = captionText;
+                lightboxCaption.textContent = captionText; // Caption'ı güncelle
+
+                lightbox.style.display = 'flex'; // Lightbox'u görünür yap
+            }
+
+            function closeLightbox() {
+                var lightbox = document.getElementById('lightbox');
+                lightbox.style.display = 'none'; // Lightbox'u gizle
+            }
+
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                lightboxImage.src = images[currentImageIndex];
+                lightboxCaption.textContent = getImageCaption(images[currentImageIndex]);
+            }
+
+            // İlgili resmin başlığını döndüren fonksiyon
+            function getImageCaption(imageSrc) {
+                // Örnek bir metin döndürülebilir, ancak bu örnekte resmin adını kullanacağım.
+                // Gerçek bir uygulamada, resimlere ilişkin başlık verilerini bir veritabanından veya başka bir kaynaktan alabilirsiniz.
+                // Bu örnekte, resim adından başlığı elde etmek için bir örnek fonksiyon yazdım.
+                var imageName = imageSrc.split('/').pop(); // Dosya adını al
+                return imageName.substring(0, imageName.lastIndexOf('.')); // Dosya adının uzantısını kaldır
+            }
+        </script>
+</body>
+
+</html>
